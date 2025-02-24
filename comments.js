@@ -1,17 +1,21 @@
-// create web server
+// Create web server
 const express = require('express');
 const app = express();
 const port = 3000;
 
-// add middleware
-app.use(express.static('public'));
+// Create comments array
+const comments = [
+  { username: 'tammy', comment: 'lololol' },
+  { username: 'sk84', comment: 'hahahah' },
+  { username: 'brian', comment: 'heheheh' }
+];
 
-// create route for comments
+// Create GET route
 app.get('/comments', (req, res) => {
-  res.json({ comments: [{ username: 'Todd', comment: 'lol' }] });
+  res.send(comments);
 });
 
-// start server
+// Listen for requests
 app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
